@@ -1,0 +1,17 @@
+<h1>Add an entrepreneur</h1>
+
+<form for="entrepreneur" action="<%= entrepreneurs_url %>" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label for="entrepreneur_first_name">First Name</label>
+	<input id="entrepreneur_first_name" name="entrepreneur[first_name]" type="text">
+	<br>
+	<label for="entrepreneur_last_name">Last Name</label>
+	<input id="entrepreneur_last_name" name="entrepreneur[last_name]" type="text">
+	<br>
+	<label for="entrepreneur_location">Location</label>
+	<input id="entrepreneur_location" name="entrepreneur[location]" type="text">
+	<br>
+	<input type="Submit" value="Submit" >
+</form>
+
+<%= link_to 'Back', :back %>

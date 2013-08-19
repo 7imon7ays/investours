@@ -1,0 +1,20 @@
+<div class="center">
+  <h1>INVESTOURS</h1>
+  <p>TOURS THAT FIGHT POVERTY</p>
+</div>
+
+<div class="center">
+  <div class="note">
+    <p>Come meet our entrepreneurs!</p>
+  </div>
+  <ul>
+    <% @entrepreneurs.each do |entrepreneur| %>
+      <li>
+        <%= link_to "#{entrepreneur.first_name}  #{entrepreneur.last_name}",
+          entrepreneur_url(entrepreneur), method: :get %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to "View All", entrepreneurs_url, method: :get %>

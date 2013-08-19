@@ -1,0 +1,12 @@
+<ul>
+	<% @entrepreneurs.each do |entrepreneur| %>
+		<li>
+			<%= link_to "#{entrepreneur.first_name} #{entrepreneur.last_name}",
+				entrepreneur_url(entrepreneur), method: :get %>
+			<br>
+			<%= entrepreneur.location %>
+		</li>
+		<% end %>
+</ul>
+
+<%= link_to "Add an entrepreneur to the database", new_entrepreneur_url, method: :get %>
