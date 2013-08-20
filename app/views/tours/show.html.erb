@@ -1,0 +1,11 @@
+<h1><%= @tour.location %></h1>
+
+<p>On this tour you will meet</p>
+<ul>
+	<% @tour.entrepreneurs.each do |entrepreneur| %>
+	<li>
+		<p><%= link_to "#{entrepreneur.first_name} #{entrepreneur.last_name}",
+			entrepreneur_url(entrepreneur), method: :get %></p>
+	</li>
+	<% end %>
+</ul>
