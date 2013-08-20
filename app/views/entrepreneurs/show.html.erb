@@ -1,6 +1,4 @@
 <h1><%= @entrepreneur.first_name %> <%= @entrepreneur.last_name%></h1>
-
-<%= button_to "Remove #{@entrepreneur.first_name} #{@entrepreneur.last_name} from database",
-	entrepreneur_url(@entrepreneur), method: :delete %>
+<h4><%= @entrepreneur.location %></h4>
 
 <%= link_to "Back to index", entrepreneurs_url, method: :get %>

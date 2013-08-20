@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
+
   has_many :tour_sign_ups, inverse_of: :user, dependent: :destroy
   has_many :tours, through: :tour_sign_ups, inverse_of: :travelers
+  
+  has_many :investor_groupings
+  has_many :groups, through: :investor_groupings
 end
