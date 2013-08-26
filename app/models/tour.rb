@@ -6,4 +6,8 @@ class Tour < ActiveRecord::Base
   
   has_many :tour_meetings, inverse_of: :tour
   has_many :entrepreneurs, through: :tour_meetings, inverse_of: :tours
+  
+  def as_json(options = {})
+    super(options.merge({ include: :entrepreneurs }))
+  end
 end

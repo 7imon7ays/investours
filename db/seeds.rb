@@ -15,8 +15,8 @@ entrepreneurs = Entrepreneur.create([
 ])
 
 tours = Tour.create([
-  { location: "England", start_date: "09/01/2013", end_date: "09/30/2013" },
-  { location: "Mexico", start_date: "010/01/2013", end_date: "10/31/2013" }
+  { location: "England", start_date: "09-01-2014", end_date: "09-30-2014" },
+  { location: "Mexico", start_date: "10-01-2014", end_date: "10-31-2014" }
 ])
 
 tour_meetings = TourMeeting.create([

@@ -1,0 +1,62 @@
+<h1>Start your Investours Experience</h1>
+
+<% if flash[:error] -%>
+  <p class='error'><%=h flash[:error][0] %></p>
+<% end -%>
+<% if flash[:notice] -%>
+  <p class='notice'><%=h flash[:notice][0] %></p>
+<% end -%>
+
+<form action="<%= sign_ups_url %>" method="POST">
+	<input type="hidden" name="authenticity_token"
+		value="<%= form_authenticity_token %>"
+	>
+
+	<ol>
+		
+		<li id="step1">
+			<h3>Select one of our destinations</h3>
+			<% @destinations.each do |destination| %>
+			<label for="<%= destination %>"><%= destination %></label>
+			<input name="destination" id="<%= destination %>"
+				type='radio' class="destination"
+				data-destination="<%= destination %>" value="<%= destination %>"
+			>
+			<% end %>
+		</li>
+		
+		<li id="step2">
+		</li>
+		
+		<li id="step3">
+		</li>
+		
+	</ol>
+	<a href="#sign_up_form">Sign Up</a>
+	
+	<div id="sign_up_form" class="modalDialog">
+		<div>
+				<a href="#close" title="Close" class="close">X</a>
+				<h2>Sign Up Form</h2>
+				<label for="email">email</label>
+				<input id="email" type="text" value="<%= current_user.email %>">
+				<input type="Submit" value="Sign Up">
+			</div>
+	</div>
+</form>
+
+<div>
+	<%= link_to_function "Back", "history.back()" %>
+</div>
+
+
+
+<script type="application/json" id="tours_json">
+	<%= @tours.to_json.html_safe %>
+</script>
+
+<script type="text/javascript">
+$(function () {
+		selectDates(JSON.parse($("#tours_json").html()))
+	})
+</script>
