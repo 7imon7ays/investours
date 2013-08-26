@@ -1,5 +1,6 @@
 function selectDates(tours) {
 	$('input.destination').on('click', function (event) {
+		$(".sign_up_link").addClass("hidden");
 		$("#step2").empty();
 		$("#step3").empty();
 		$("#step2").append("<h3>Select one of the dates available</h3>");
@@ -9,6 +10,7 @@ function selectDates(tours) {
 			var chosenID = $(event.target).data('id');
 			var chosenTour = _(tours).filter(function (tour) { return tour.id == chosenID })[0];
 			showEntrepreneurs(chosenTour);
+			showSignUpLink();
 		})
 	})
 }
@@ -34,4 +36,8 @@ function showEntrepreneurs (chosenTour) {
 		$('ul.entrepreneurs').append("<li><a href='/entrepreneurs/" + entrepreneur.id + "'\
 		target='_new'>" + fullName + "</a></li>")
 	})
+}
+
+function showSignUpLink() {
+	$(".sign_up_link").removeClass("hidden");
 }
