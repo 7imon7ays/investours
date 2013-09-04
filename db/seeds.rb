@@ -24,3 +24,8 @@ tour_meetings = TourMeeting.create([
   { entrepreneur_id: 3, tour_id: 1 },
   { entrepreneur_id: 4, tour_id: 2 }
 ])
+
+loans = Loan.create([
+  { investor_id: 1, entrepreneur_id: 1 },
+  { investor_id: 1, entrepreneur_id: 2 }
+])

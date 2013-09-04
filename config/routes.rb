@@ -1,4 +1,7 @@
 Investours::Application.routes.draw do
+  resources :loans
+
+
   resource :dashboard, only: [:show]
   resources :entrepreneurs
   resources :sign_ups

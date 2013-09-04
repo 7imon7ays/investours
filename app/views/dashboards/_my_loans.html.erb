@@ -1,0 +1,8 @@
+<ul>
+<% @loans.each do |loan| %>
+ <li>
+	 <div><%= loan.entrepreneur.full_name %></div>
+	 <div><meter value="<%= loan.progress %>" min="0" max="100"><%= loan.progress %> out of 100</meter></div>
+ </li>
+<% end %>
+</ul>

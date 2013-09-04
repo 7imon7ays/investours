@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
   
   has_many :investor_groupings
   has_many :groups, through: :investor_groupings
+  
+  has_many :loans, foreign_key: :investor_id
+  has_many :debitors, through: :loans, source: :entrepreneur
 end

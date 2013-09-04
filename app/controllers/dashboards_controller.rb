@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
   
   def show
     @user = current_user
+    @loans = @user.loans
   end
   
 end

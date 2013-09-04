@@ -1,1 +1,33 @@
-<h1>Welcome <%= @user.email %></h1>
+<h1><%= @user.email %></h1>  
+<div id="header"> 
+	
+	<div class="tabs">
+    
+	   <div class="tab">
+	       <input type="radio" id="tab-1" name="tab-group-1" checked>
+	       <label for="tab-1">My Loans</label>
+       
+	       <div class="content">
+					 <%= render "my_loans" %>
+	       </div>
+	   </div>
+    
+	   <div class="tab">
+	       <input type="radio" id="tab-2" name="tab-group-1">
+	       <label for="tab-2">My Groups</label>
+       
+	       <div class="content">
+	           groups
+	       </div> 
+	   </div>
+    
+	    <div class="tab">
+	       <input type="radio" id="tab-3" name="tab-group-1">
+	       <label for="tab-3">My MFI's</label>
+     
+	       <div class="content">
+					 MFI's
+	       </div> 
+	   </div>
+    
+	</div>
