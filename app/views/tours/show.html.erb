@@ -1,5 +1,9 @@
 <h1><%= @tour.location %></h1>
 
+<p>On <%= @tour.date %></p>
+<% if @tour.entrepreneurs.empty?%>
+<p>Check back later to see which entrepreneurs you'll meet on this tour.</p>
+<% else %>
 <p>On this tour you will meet</p>
 <ul>
 	<% @tour.entrepreneurs.each do |entrepreneur| %>
@@ -9,5 +13,6 @@
 	</li>
 	<% end %>
 </ul>
+<% end %>
 
 <%= link_to_function "Back", "history.back()" %>

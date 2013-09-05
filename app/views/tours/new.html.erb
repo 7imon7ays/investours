@@ -1,0 +1,22 @@
+<h1>Add a tour</h1>
+
+<form for="tour" action="<%= tours_url %>" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label for="tour_location">Location</label>
+	<input id="tour_location" name="tour[location]" type="text">
+	<br>
+	<label for="date">Date</label>
+	<input id="date" name="tour[date]" type="text">
+	<br>
+	<input type="Submit" value="Submit" >
+</form>
+
+<%= link_to 'Back', :back %>
+
+<script type="text/javascript">
+
+$(function() {
+    $( "#date" ).datepicker();
+  });
+	
+</script>

@@ -1,11 +1,8 @@
 Investours::Application.routes.draw do
-  resources :loans
-
-
   resource :dashboard, only: [:show]
   resources :entrepreneurs
   resources :sign_ups
-  resources :tours, only: [:index, :show]
+  resources :tours
   devise_for :users
 
   root to: "visitors#welcome"

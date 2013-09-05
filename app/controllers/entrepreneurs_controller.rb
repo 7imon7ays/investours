@@ -10,6 +10,7 @@ class EntrepreneursController < ApplicationController
   
   def new
     @entrepreneur = Entrepreneur.new
+    authorize! :create, @entrepreneur
   end
   
   def create

@@ -3,10 +3,10 @@ class Entrepreneur < ActiveRecord::Base
   
   validates :first_name, :last_name, presence: true
   
-  has_many :tour_meetings, inverse_of: :entrepreneur
+  has_many :tour_meetings, inverse_of: :entrepreneur, dependent: :destroy
   has_many :tours, through: :tour_meetings, inverse_of: :entrepreneurs
   
-  has_many :loans
+  has_many :loans, dependent: :destroy
   has_many :creditors, through: :loans, source: :investor
   
   def full_name

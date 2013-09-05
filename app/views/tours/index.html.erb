@@ -4,9 +4,7 @@
 	<% @tours.each do |tour| %>
 		<li>
 			<%= link_to "#{tour.location}",
-				tour_url(tour), method: :get %>
-			<br>
-			<p>from <%= tour.start_date %> to <%= tour.end_date %></p>
+				tour_url(tour), method: :get %> on <%= tour.date %> 
 		</li>
 		<% end %>
 </ul>

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  ROLES = %w[admin user]
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -15,6 +18,6 @@ class User < ActiveRecord::Base
   has_many :investor_groupings
   has_many :groups, through: :investor_groupings
   
-  has_many :loans, foreign_key: :investor_id
+  has_many :loans, foreign_key: :investor_id, dependent: :destroy
   has_many :debitors, through: :loans, source: :entrepreneur
 end

@@ -1,4 +1,7 @@
-<h1><%= @entrepreneur.first_name %> <%= @entrepreneur.last_name%></h1>
+<h1><%= @entrepreneur.full_name %></h1>
 <h4><%= @entrepreneur.location %></h4>
+
+<% if user.role == 'admin' %>
+<%= button_to "Delete #{@entrepreneur.full_name}", entrepreneur_url(@entrepreneur), method: :delete, confirm: "Delete #{@entrepreneur.full_name}?" %>
 
 <%= link_to "Back to index", entrepreneurs_url, method: :get %>
