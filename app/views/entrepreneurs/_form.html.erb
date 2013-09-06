@@ -1,0 +1,26 @@
+<form for="entrepreneur" action="<%= entrepreneurs_url %>" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label for="entrepreneur_first_name">First Name</label>
+	<input id="entrepreneur_first_name" name="entrepreneur[first_name]" type="text" value="<%= @entrepreneur.first_name %>">
+	<br>
+	<label for="entrepreneur_last_name">Last Name</label>
+	<input id="entrepreneur_last_name" name="entrepreneur[last_name]" type="text" value="<%= @entrepreneur.last_name %>">
+	<br>
+	<label for="entrepreneur_location">Location</label>
+	<input id="entrepreneur_location" name="entrepreneur[location]" type="text" value="<%= @entrepreneur.location %>">
+	<br>
+	<label for="entrepreneur_tour">Tour</label>
+	<select id="entrepreneur_tour" name="entrepreneur[tour_ids]">
+		<% @tours.each do |tour| %>
+		<option value="<%= tour.id %>"
+			<% if tour.entrepreneurs.include? @entrepreneur %>
+			selected="selected"
+			<% end %>
+		>
+			
+			<%= tour.location %> on <%= tour.date %>
+		</option>
+		<% end %>
+	</select>
+	<input type="Submit" value="Submit" >
+</form>

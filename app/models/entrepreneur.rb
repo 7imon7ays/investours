@@ -1,5 +1,5 @@
 class Entrepreneur < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :location
+  attr_accessible :first_name, :last_name, :location, :tour_ids
   
   validates :first_name, :last_name, presence: true
   

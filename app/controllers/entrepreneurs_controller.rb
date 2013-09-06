@@ -10,6 +10,8 @@ class EntrepreneursController < ApplicationController
   
   def new
     @entrepreneur = Entrepreneur.new
+    @tours = Tour.where("date > ?", Date.current)
+    
     authorize! :create, @entrepreneur
   end
   
@@ -27,6 +29,7 @@ class EntrepreneursController < ApplicationController
   
   def edit
     @entrepreneur = Entrepreneur.find(params[:id])
+    @tours = Tour.where("date > ?", Date.current)
   end
   
   def update

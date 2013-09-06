@@ -32,12 +32,4 @@
     
 	</div>
 
-	<% if @user.role == "admin" %>
-	<div class="admin_tools">
-		<h4>Admin Tools</h4>
-		<ul>
-			<li><%= link_to "Add an entrepreneur", new_entrepreneur_url %></li>
-			<li><%= link_to "Add a tour", new_tour_url %></li>
-		</ul>
-	</div>
-	<% end %>
+<%= render "admin_tools" if @user.role == "admin" %>
