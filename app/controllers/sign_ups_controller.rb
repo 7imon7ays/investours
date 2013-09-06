@@ -3,7 +3,7 @@ class SignUpsController < ApplicationController
   before_filter :authenticate_user!
   
   def new
-    @tours = Tour.where("start_date > ?", Date.current)
+    @tours = Tour.where("date > ?", Date.current)
     @destinations = @tours.map(&:location).uniq
   end
   

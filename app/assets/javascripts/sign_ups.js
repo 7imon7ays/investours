@@ -18,11 +18,11 @@ function selectDates(tours) {
 function populateDates(tours, destination) {
 	var availableTours = _(tours).filter(function (tour) { return tour.location == destination; });
 	_(availableTours).each(function (tour) {
-		$("#step2").append("<label for='" + tour.start_date + "'>\
-			 " + tour.start_date + "</label>\
+		$("#step2").append("<label for='" + tour.date + "'>\
+			 " + tour.date + "</label>\
 				<input type='radio' class='date' data-id='" + tour.id + "'\
 				value='" + tour.id + "'\
-				id='" + tour.start_date + "'\
+				id='" + tour.date + "'\
 				name='" + "tour_id" + "'>");
 	});
 }
