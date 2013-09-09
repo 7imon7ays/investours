@@ -1,0 +1,29 @@
+.navbar-text {
+	width: 790px;
+	margin: 0 auto;
+}
+
+.navbar-text a {
+	text-decoration: none;
+}
+
+.navbar-text li {
+	display: inline;
+}
+
+.nav {
+	position: relative;
+}
+
+.dropdown {
+	position: absolute;
+	left: 565px;
+}
+
+.dropdown li {
+	display: none;
+}
+
+.dropdown-toggle:hover li {
+	display: block;
+}

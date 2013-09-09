@@ -23,14 +23,14 @@ class User < ActiveRecord::Base
   
   after_create :send_welcome_email
   
-  private
-  
   def full_name
     first_name + " " + last_name
   end
   
+  private
+    
   def send_welcome_email
-    UserMailer.welcome_email(self)
+    UserMailer.welcome_email(self).deliver
   end
   
 end

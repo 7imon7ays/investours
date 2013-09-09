@@ -32,8 +32,10 @@
 			<span>This is how you get involved</span>
 		</li>
 		<li>
-			<span>Find a trip and sign up to join us</span>
-			<br>
+			<% unless user_signed_in? %>
+				<span>Find a trip and <%= link_to "sign up", new_user_registration_path %> to join us</span>
+				<br>
+			<% end %>
 			<span>Our upcoming regularly scheduled tours are listed below.</span>
 			<br>
 			<%= link_to "View All", tours_url, method: :get %>

@@ -5,5 +5,9 @@ Investours::Application.routes.draw do
   resources :tours
   devise_for :users
 
+
+  authenticated :user do
+    root :to => "dashboards#show"
+  end
   root to: "visitors#welcome"
 end
