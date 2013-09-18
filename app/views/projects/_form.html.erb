@@ -1,0 +1,19 @@
+<form for="project" action="<%= entrepreneur_projects_url(@entrepreneur) %>" method="PUT">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label for="project_title">Title</label>
+	<input id="project_title" name="project[title]" type="text" value="<%= @project.title %>">
+	<br>
+	<label for="project_description">Description</label>
+	<textarea id="project_description" name="project[description]"><%= @project.description %></textarea>
+	<br>
+	<label for="project_fundraising_goal">Fundraising Goal</label>
+	<input id="project_fundraising_goal" name="project[fundraising_goal]"
+		type="number" value="<%= @project.fundraising_goal %>"
+		>
+	<br>
+	<label for="project_fundraising_status">Fundraising Status</label>
+	<input id="project_fundraising_status" name="project[fundraising_status]"
+		type="number" value="<%= @project.fundraising_status %>"
+		>
+	<input type="Submit" value="Submit" >
+</form>

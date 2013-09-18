@@ -1,0 +1,6 @@
+<h1>Editing Project</h1>
+
+<%= render 'form', locals: { project: @project } %>
+
+<%= link_to 'Show', entrepreneur_projects_url(@entrepreneur, @project) %> |
+<%= link_to 'Back', entrepreneur_projects_url(@project.entrepreneur) %>

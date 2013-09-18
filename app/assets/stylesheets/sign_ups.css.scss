@@ -30,14 +30,10 @@
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
 	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
 }
 
 .close {
 	background: #606061;
-	color: #FFFFFF;
 	line-height: 25px;
 	position: absolute;
 	right: -12px;
@@ -54,7 +50,14 @@
 	box-shadow: 1px 1px 3px #000;
 }
 
-.close:hover { background: #00d9ff; }
+.close:hover {
+	background: white;
+	color: black;
+}
+
+a:visited.close {
+	color: black;
+}
 
 .hidden {
 	display: none;

@@ -1,6 +1,10 @@
 <h1><%= @entrepreneur.full_name %></h1>
 <h4><%= @entrepreneur.location %></h4>
 
+<% unless @entrepreneur.projects.empty? %>
+	<%= render "projects_list", locals: { entrepreneur: @entrepreneur } %>
+<% end %>
+
 <% if current_user && current_user.role == 'admin' %>
 <%= link_to "Edit #{@entrepreneur.full_name}", edit_entrepreneur_url(@entrepreneur), method: :get  %>
 <%= button_to "Delete #{@entrepreneur.full_name}", entrepreneur_url(@entrepreneur), method: :delete, confirm: "Delete #{@entrepreneur.full_name}?" %>

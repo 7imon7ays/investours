@@ -10,6 +10,8 @@ class Entrepreneur < ActiveRecord::Base
   has_many :loans, dependent: :destroy
   has_many :creditors, through: :loans, source: :investor
   
+  has_many :projects, dependent: :destroy
+  
   def full_name
     first_name + " " + last_name
   end
