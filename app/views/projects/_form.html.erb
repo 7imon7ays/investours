@@ -1,5 +1,6 @@
-<form for="project" action="<%= entrepreneur_projects_url(@entrepreneur) %>" method="PUT">
+<form for="project" action="<%= entrepreneur_project_url(@entrepreneur) %>" method="POST">
 	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input name="_method" value="PUT" type="hidden">
 	<label for="project_title">Title</label>
 	<input id="project_title" name="project[title]" type="text" value="<%= @project.title %>">
 	<br>

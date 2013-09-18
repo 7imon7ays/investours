@@ -6,6 +6,7 @@ class EntrepreneursController < ApplicationController
   
   def show
     @entrepreneur = Entrepreneur.find(params[:id])
+    @projects = @entrepreneur.projects
   end
   
   def new
@@ -30,6 +31,7 @@ class EntrepreneursController < ApplicationController
   def edit
     @entrepreneur = Entrepreneur.find(params[:id])
     @tours = Tour.where("date > ?", Date.current)
+    authorize! :update, @entrepreneur
   end
   
   def update

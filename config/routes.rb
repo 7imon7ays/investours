@@ -1,7 +1,7 @@
 Investours::Application.routes.draw do
   resource :dashboard, only: [:show]
   resources :entrepreneurs do
-    resources :projects
+    resources :projects, only: [:edit, :update]
   end
   resources :sign_ups
   resources :tours
