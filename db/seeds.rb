@@ -31,5 +31,6 @@ loans = Loan.create([
 ])
 
 projects = Project.create([
-  { entrepreneur_id: 1, title: "Buy me a car", description: "I want a new car!", fundraising_goal: 200 }
+  { entrepreneur_id: 1, title: "New Car", description: "I need a car for my business!", fundraising_goal: 200 }
+  { entrepreneur_id: 2, title: "Restaurant", description: "I want to start a restaurant.", fundraising_goal: 1000 }
 ])
