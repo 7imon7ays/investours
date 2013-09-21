@@ -32,7 +32,8 @@ projects = Project.create([
 
 loans = Loan.create([
   { lender_id: 1, entrepreneur_id: 1, project_id: 1, principal: 100, interest: 0.05 },
-  { lender_id: 1, entrepreneur_id: 2, project_id: 2, principal: 1000, interest: 0.10 }
+  { lender_id: 1, entrepreneur_id: 2, project_id: 2, principal: 300, interest: 0.10 },
+  { lender_id: 1, entrepreneur_id: 2, project_id: 2, principal: 300, interest: 0.05 }
 ])
 
 payments = Payment.create([

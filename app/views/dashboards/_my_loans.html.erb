@@ -1,8 +1,11 @@
 <ul>
 <% @projects.each do |project| %>
  <li>
+	 <div><%= project.title %></div>
 	 <div><%= project.entrepreneur.full_name %></div>
-	 <div><meter value="<%= project.fundraising_status %>" min="0" max="100"><%= project.amount_raised %> raised out of <%= project.fundraising_goal %></meter></div>
+	 <div><meter value="<%= project.fundraising_status %>"min="0" max="100">
+		 <%= project.amount_raised %> raised out of <%= project.fundraising_goal %>
+	 </meter></div>
  </li>
 <% end %>
 </ul>

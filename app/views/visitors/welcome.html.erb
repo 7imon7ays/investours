@@ -10,7 +10,7 @@
   <ul>
     <% @entrepreneurs.each do |entrepreneur| %>
       <li>
-        <%= link_to "#{entrepreneur.first_name}  #{entrepreneur.last_name}",
+        <%= link_to "#{entrepreneur.full_name}",
           entrepreneur_url(entrepreneur), method: :get %>
       </li>
     <% end %>

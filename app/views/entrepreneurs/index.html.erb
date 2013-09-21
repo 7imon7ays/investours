@@ -9,4 +9,6 @@
 		<% end %>
 </ul>
 
-<%= link_to "Add an entrepreneur to the database", new_entrepreneur_url, method: :get %>
+<% if current_user && current_user.role == "admin" %>
+	<%= link_to "Add an entrepreneur to the database", new_entrepreneur_url, method: :get %>
+<% end %>
