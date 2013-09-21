@@ -25,12 +25,17 @@ tour_meetings = TourMeeting.create([
   { entrepreneur_id: 4, tour_id: 2 }
 ])
 
-loans = Loan.create([
-  { investor_id: 1, entrepreneur_id: 1 },
-  { investor_id: 1, entrepreneur_id: 2 }
+projects = Project.create([
+  { entrepreneur_id: 1, title: "New Car", description: "I need a car for my business!", fundraising_goal: 200 },
+  { entrepreneur_id: 2, title: "Restaurant", description: "I want to start a restaurant.", fundraising_goal: 1000 }
 ])
 
-projects = Project.create([
-  { entrepreneur_id: 1, title: "New Car", description: "I need a car for my business!", fundraising_goal: 200 }
-  { entrepreneur_id: 2, title: "Restaurant", description: "I want to start a restaurant.", fundraising_goal: 1000 }
+loans = Loan.create([
+  { lender_id: 1, entrepreneur_id: 1, project_id: 1, principal: 100, interest: 0.05 },
+  { lender_id: 1, entrepreneur_id: 2, project_id: 2, principal: 1000, interest: 0.10 }
+])
+
+payments = Payment.create([
+  { loan_id: 2, payer_id: 2, amount: 500 },
+  { loan_id: 2, payer_id: 2, amount: 250 }
 ])

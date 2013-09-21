@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130920003311) do
+ActiveRecord::Schema.define(:version => 20130921004302) do
 
   create_table "entrepreneurs", :force => true do |t|
     t.string   "first_name", :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20130920003311) do
 
   create_table "loans", :force => true do |t|
     t.integer  "entrepreneur_id",                               :null => false
-    t.integer  "investor_id",                                   :null => false
+    t.integer  "lender_id",                                     :null => false
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.integer  "project_id",                                    :null => false
@@ -58,14 +58,22 @@ ActiveRecord::Schema.define(:version => 20130920003311) do
     t.decimal  "interest",        :precision => 8, :scale => 2, :null => false
   end
 
+  create_table "payments", :force => true do |t|
+    t.integer  "loan_id",                                  :null => false
+    t.integer  "payer_id",                                 :null => false
+    t.decimal  "amount",     :precision => 8, :scale => 2, :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
   create_table "projects", :force => true do |t|
-    t.integer  "entrepreneur_id",                     :null => false
-    t.string   "title",                               :null => false
+    t.integer  "entrepreneur_id",                   :null => false
+    t.string   "title",                             :null => false
     t.text     "description"
-    t.decimal  "fundraising_goal",                    :null => false
-    t.decimal  "fundraising_status", :default => 0.0, :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.decimal  "fundraising_goal",                  :null => false
+    t.decimal  "amount_raised",    :default => 0.0, :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "tour_meetings", :force => true do |t|

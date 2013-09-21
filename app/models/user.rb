@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :investor_groupings
   has_many :groups, through: :investor_groupings
   
-  has_many :loans, foreign_key: :investor_id, dependent: :destroy
+  has_many :loans, foreign_key: :investor_id, inverse_of: :lender, dependent: :destroy
   has_many :debitors, through: :loans, source: :entrepreneur
   
   
@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   
   def full_name
     first_name + " " + last_name
+  end
+  
+  def backed_projects
+    Project.joins(:loans).where("loans.lender_id = ?", id).group('projects.id')
   end
   
   private
