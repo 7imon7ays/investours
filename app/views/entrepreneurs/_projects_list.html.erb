@@ -4,7 +4,7 @@
 	<% @entrepreneur.projects.each do |project| %>
 	<li>
 		<p><%= project.title %></p>
-		<p><%= project.fundraising_status %> dollars raised out of <%= project.fundraising_goal %></p>
+		<p><%= project.amount_raised %> dollars raised out of <%= project.fundraising_goal %></p>
 		<% if current_user && current_user.role == 'admin' %>
 			<p><%= link_to "Update this project", edit_entrepreneur_project_url(@entrepreneur, project), method: :get  %></p>
 		<% end %>

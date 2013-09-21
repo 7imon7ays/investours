@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :investor_groupings
   
   has_many :loans, foreign_key: :lender_id, inverse_of: :lender, dependent: :destroy
-  has_many :backed_projects, through: :loans, source: :project
+  has_many :backed_projects, through: :loans, source: :project, uniq: true
   
   has_many :debtors, through: :loans, source: :entrepreneur
   
