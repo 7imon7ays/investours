@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   belongs_to :entrepreneur
   has_many :loans
   has_many :backers, through: :loans, source: :lender, uniq: true
+  has_many :updates
     
   def amount_raised
     loans.pluck("principal").inject(:+)

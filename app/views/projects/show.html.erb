@@ -1,0 +1,12 @@
+<h1><%= @project.title %></h1>
+<div><%= @project.entrepreneur.full_name %></div>
+<div><%= @project.description %></div>
+
+<div><h2>Project Updates</h2></div>
+<ul>
+	<% @updates.each do |update| %>
+		<li>
+			<%= render partial: "updates/show", locals: { update: update } %>
+		</li>
+	<% end %>
+</ul>

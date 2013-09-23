@@ -3,8 +3,7 @@
 <ul>
 	<% @entrepreneur.projects.each do |project| %>
 	<li>
-		<p><%= project.title %></p>
-		<p><%= project.amount_raised %> dollars raised out of <%= project.fundraising_goal %></p>
+		<%= render partial: "projects/mini_show", locals: { project: project } %>
 		<% if current_user && current_user.role == 'admin' %>
 			<p><%= link_to "Update this project", edit_entrepreneur_project_url(@entrepreneur, project), method: :get  %></p>
 		<% end %>

@@ -1,8 +1,9 @@
 Investours::Application.routes.draw do
   resource :dashboard, only: [:show]
   resources :entrepreneurs do
-    resources :projects, only: [:edit, :update]
+    resources :projects, only: [:show, :edit, :update]
   end
+  resources :loans, except: [:index, :destroy]
   resources :sign_ups
   resources :tours
   devise_for :users

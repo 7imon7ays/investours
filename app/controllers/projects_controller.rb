@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @updates = @project.updates.order("created_at")
 
     respond_to do |format|
       format.html # show.html.erb

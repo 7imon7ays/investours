@@ -26,7 +26,7 @@ class Loan < ActiveRecord::Base
     amount_paid / amount_owed * 100
   end
   
-  def payed_off?
+  def payed_in_full?
     amount_paid >= amount_owed
   end
   
@@ -37,7 +37,7 @@ class Loan < ActiveRecord::Base
   end
   
   def principal_cannot_exceed_project_need
-    if project.amount_raised + principal > fundraising_goal
+    if project.amount_raised + principal > project.fundraising_goal
       errors.add(:principal, "cannot exceed project funding requirement")
     end
   end

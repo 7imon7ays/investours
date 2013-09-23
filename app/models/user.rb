@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   
   has_many :debtors, through: :loans, source: :entrepreneur
   
+  has_many :updates, foreign_key: :author_id
+  
   after_create :send_welcome_email
   
   def full_name
