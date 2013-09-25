@@ -1,7 +1,3 @@
 <div><a href="<%= entrepreneur_project_url(project.entrepreneur, project) %>"><%= project.title %></a></div>
-<div><%= project.entrepreneur.full_name %></div>
-<div>
-	<meter value="<%= project.fundraising_status %>"min="0" max="100">
-		<%= project.amount_raised %> raised out of <%= project.fundraising_goal %>
-	</meter>
-</div>
+
+<%= render partial: "projects/progress_status", locals: { project: project } %>

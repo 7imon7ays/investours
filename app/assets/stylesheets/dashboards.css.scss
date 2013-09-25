@@ -46,3 +46,7 @@
 [type=radio]:checked ~ label ~ .content {
   z-index: 1;
 }
+
+.scroll {
+	overflow: scroll;
+}

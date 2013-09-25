@@ -1,4 +1,4 @@
-<h1><%= @user.full_name %></h1>
+<h1><%= current_user.full_name %></h1>
 <div id="header"> 
 	
 	<div class="tabs">
@@ -7,7 +7,7 @@
 	       <input type="radio" id="tab-1" name="tab-group-1" checked>
 	       <label for="tab-1">My Loans</label>
        
-	       <div class="content">
+	       <div class="content scroll">
 					 <%= render "my_loans" %>
 	       </div>
 	   </div>
@@ -16,7 +16,7 @@
 	       <input type="radio" id="tab-2" name="tab-group-1">
 	       <label for="tab-2">My Groups</label>
        
-	       <div class="content">
+	       <div class="content scroll">
 	           groups
 	       </div> 
 	   </div>
@@ -25,7 +25,7 @@
 	       <input type="radio" id="tab-3" name="tab-group-1">
 	       <label for="tab-3">My MFI's</label>
      
-	       <div class="content">
+	       <div class="content scroll">
 					 MFI's
 	       </div> 
 	   </div>

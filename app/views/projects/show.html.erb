@@ -2,19 +2,7 @@
 <div><%= @project.entrepreneur.full_name %></div>
 <div><%= @project.description %></div>
 
-<div><h2>Project Updates</h2></div>
-<% if @updates.empty? %>
-	<div>No updates yet.</div>
-<% else %>
-	<ul>
-		<% @updates.each do |update| %>
-			<li>
-				<%= render partial: "updates/show", locals: { update: update } %>
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+<h2>Project Status</h2>
+<%= render partial: "progress_status", locals: { project: @project } %>
 
-<% if current_user && current_user.role == "admin" %>
-	<%= render partial: "updates/new", locals: { project: @project } %>
-<% end %>
+<%= render partial: "updates", locals: { project: @project, updates: @updates } %>

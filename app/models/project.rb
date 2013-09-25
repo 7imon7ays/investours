@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :title, :description, :entrepreneur_id, :fundraising_goal, :amount_raised
+  attr_accessible :title, :description, :entrepreneur_id, :fundraising_goal
   
   belongs_to :entrepreneur
   has_many :loans
@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
     loans.pluck("principal").inject(:+)
   end
     
-  def fundraising_status
+  def progress_status
     amount_raised / fundraising_goal * 100
   end
   

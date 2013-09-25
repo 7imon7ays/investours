@@ -33,10 +33,18 @@
 					</ul>
 				</li>
 			<% else %>
-			<li>
+		  <li class="dropdown-toggle">
 				<a href="#">
-					<%= link_to "LOGIN", new_user_session_path, :class => 'navbar-link'  %>
+					ACCOUNT
 				</a>
+				<ul class="dropdown">
+					<li>
+						<%= link_to "LOGIN", new_user_session_path, :class => 'navbar-link'  %>
+					</li>
+					<li>
+						<%= link_to "SIGN UP", new_user_registration_path %>
+					</li>
+				</ul>
 			</li>
 			<% end %>
 		</ul>
