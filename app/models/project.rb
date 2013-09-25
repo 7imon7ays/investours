@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   has_many :updates
     
   def amount_raised
-    loans.pluck("principal").inject(:+)
+    loans.pluck("principal").inject(:+) || 0
   end
     
   def progress_status
@@ -16,6 +16,18 @@ class Project < ActiveRecord::Base
   
   def fully_funded?
     amount_raised >= fundraising_goal
+  end
+  
+  def borrowed_amount
+    loans.includes.map { |loan| loan.amount_owed }.inject(:+)
+  end
+  
+  def repaid_amount
+    Loan.includes(:payments).where(project_id: id).map { |loan| loan.amount_paid }.inject(:+)
+  end
+  
+  def repayment_status
+    repaid_amount / borrowed_amount * 100
   end
     
 end

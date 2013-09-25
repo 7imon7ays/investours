@@ -1,16 +1,18 @@
-<h2>Project Updates</h2>
-<% if updates.empty? %>
-	<div>No updates yet.</div>
-<% else %>
-	<ul>
-		<% updates.each do |update| %>
-			<li>
-				<%= render partial: "updates/show", locals: { update: update } %>
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+<div>
+	<h2>Project Updates</h2>
+	<% if updates.empty? %>
+		<div>No updates yet.</div>
+	<% else %>
+		<ul>
+			<% updates.each do |update| %>
+				<li>
+					<%= render partial: "updates/show", locals: { update: update } %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
 
-<% if current_user && current_user.role == "admin" %>
-	<%= render partial: "updates/new", locals: { project: @project } %>
-<% end %>
+	<% if current_user && current_user.role == "admin" %>
+		<%= render partial: "updates/new", locals: { project: @project } %>
+	<% end %>
+</div>
