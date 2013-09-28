@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
 
   def show
-    @project = Project.find(params[:id])
-    @updates = @project.updates.order("created_at")
+    @project = Project.includes(:entrepreneur, :updates, :loans).order("updates.created_at").find(params[:id])
+    @entrepreneur = @project.entrepreneur
+    @updates = @project.updates
 
     respond_to do |format|
       format.html # show.html.erb

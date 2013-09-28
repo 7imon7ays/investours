@@ -7,7 +7,8 @@ class Project < ActiveRecord::Base
   has_many :updates
     
   def amount_raised
-    loans.pluck("principal").inject(:+) || 0
+    loans.map { |loan| loan.principal }.inject(:+) || 0
+    # loans.pluck("principal").inject(:+) || 0
   end
     
   def progress_status
