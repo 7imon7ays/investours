@@ -6,13 +6,13 @@
 		<ul>
 			<% updates.each do |update| %>
 				<li>
-					<%= render partial: "updates/show", locals: { update: update } %>
+					<%= render partial: "update", locals: { update: update } %>
 				</li>
 			<% end %>
 		</ul>
 	<% end %>
 
-	<% if current_user && current_user.role == "admin" %>
-		<%= render partial: "updates/new", locals: { project: @project } %>
+	<% if user_is_admin? %>
+		<%= render partial: "new_update", locals: { project: @project } %>
 	<% end %>
 </div>
