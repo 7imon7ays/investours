@@ -8,7 +8,6 @@ class Project < ActiveRecord::Base
     
   def amount_raised
     loans.map { |loan| loan.principal }.inject(:+) || 0
-    # loans.pluck("principal").inject(:+) || 0
   end
     
   def progress_status
