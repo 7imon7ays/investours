@@ -1,13 +1,14 @@
 <div>
 	<p>$<%= project.amount_raised %> raised. $<%= project.fundraising_goal %> needed.</p>
 	<div class='meter'>
-		<span style="width: <%= project.progress_status %>%"></span>
+		<span id="project-<%= project.id %>" style="width: <%= project.progress_status %>%"></span>
 	</div>
 </div>
 
 
 <script type="text/javascript">
 	$(function () {
-		animateProgressBar();	
+		var $progressSpan = $(".meter > span#project-<%= project.id %>")
+		animateProgressBar($progressSpan);
 	})
 </script>
