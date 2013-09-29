@@ -3,14 +3,8 @@
 <div><%= @project.description %></div>
 
 
-<% if @project.fully_funded? %>
-	<h2>Repayment Status</h2>
-	<%= render partial: "repayment_status", locals: { project: @project } %>
-<% else %>
-	<h2>Progress Status</h2>
-	<%= render partial: "progress_status", locals: { project: @project } %>
-	<%= render partial: "new_loan", locals: { project: @project, entrepreneur: @entrepreneur, loan: Loan.new } if user_is_admin? %>
-<% end %>
+<%= render partial: "projects/project_status", locals: { project: @project } %>
 
+<%= render partial: "projects/new_loan", locals: { project: @project } if user_is_admin? %>
 
-<%= render partial: "updates", locals: { project: @project, updates: @updates } %>
+<%= render partial: "projects/updates", locals: { project: @project, updates: @updates } %>
