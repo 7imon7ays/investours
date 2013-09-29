@@ -47,12 +47,11 @@ class LoansController < ApplicationController
         format.html { redirect_to :back, notice: 'Loan was successfully added.' }
         format.json { render json: @loan, status: :created, location: @loan }
       else
-        p "ERRORS"
-        p @loan.errors
         format.html { render action: "new" }
         format.json { render json: @loan.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :create, @loan
   end
 
   # PUT /loans/1

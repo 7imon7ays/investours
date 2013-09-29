@@ -9,6 +9,7 @@
 <script type="text/javascript">
 	$(function () {
 		var $progressSpan = $(".meter > span#project-<%= project.id %>")
+		console.log($(".meter > span#project-<%= project.id %>"))
 		animateProgressBar($progressSpan);
 	})
 </script>
