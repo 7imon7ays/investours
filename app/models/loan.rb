@@ -15,7 +15,7 @@ class Loan < ActiveRecord::Base
   end
   
   def amount_paid
-    payments.pluck("amount").inject(:+) || 0
+    payments.map { |payment| payment.amount }.inject(:+) || 0
   end
   
   def oustanding_balance

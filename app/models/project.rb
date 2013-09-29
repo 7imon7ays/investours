@@ -11,23 +11,23 @@ class Project < ActiveRecord::Base
   end
     
   def progress_status
-    amount_raised / fundraising_goal * 100
+    amount_raised / (fundraising_goal || amount_raised) * 100
   end
   
   def fully_funded?
     amount_raised >= fundraising_goal
   end
   
-  def borrowed_amount
-    loans.includes.map { |loan| loan.amount_owed }.inject(:+)
+  def amount_borrowed
+    loans.map { |loan| loan.amount_owed }.inject(:+) || 0
   end
   
-  def repaid_amount
-    Loan.includes(:payments).where(project_id: id).map { |loan| loan.amount_paid }.inject(:+)
+  def amount_repaid
+    Loan.includes(:payments).where(project_id: id).map { |loan| loan.amount_paid }.inject(:+) || 0
   end
   
   def repayment_status
-    repaid_amount / borrowed_amount * 100
+    amount_repaid / (amount_borrowed || amount_repaid) * 100
   end
     
 end
