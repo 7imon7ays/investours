@@ -38,10 +38,10 @@
 				
 				_(data).each(function(user) {
 					var fullName = user.first_name + " " + user.last_name
+					var label = "<label for='" + fullName + "'>" + fullName + "</label>";
+					var radio = "<input type='radio' name=loan[lender_id] id='" + fullName + "' value='" + user.id + "'>";
 					
-					$resultsEl
-					.append("<label for='" + fullName + "'>" + fullName + "</label")
-					.append("<input type='radio' name=loan[lender_id] id='" + fullName + "' value='" + user.id + "'>");
+					$resultsEl.append("<li>" + label + radio + "</li>");
 				})
 				
         // $($.searchbox.settings.dom_id).html(data)

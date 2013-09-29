@@ -1,4 +1,4 @@
-function createLoan(event) {
+function recordLoan(event) {
 	event.preventDefault();
 	
 	if ($("#principal").val() == "") {

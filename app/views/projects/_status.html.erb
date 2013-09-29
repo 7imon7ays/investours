@@ -1,7 +1,7 @@
 <% if project.fully_funded? %>
-	<div>Repayment Status</div>
+	<div>Repaying Loans</div>
 	<%= render partial: "projects/repayment_status", locals: { project: project } %>
 <% else %>
-	<div>Progress Status</div>
+	<div>Fundraising</div>
 	<%= render partial: "projects/progress_status", locals: { project: project } %>
 <% end %>

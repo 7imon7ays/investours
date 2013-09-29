@@ -1,5 +1,5 @@
 <div class="add_loan">
-	<a href="#loan_form" class="add_loan_link">Add Loan</a>
+	<a href="#loan_form" class="add_loan_link">Record New Loan</a>
 	<form action="<%= loans_url %>" method="POST">
 		<div id="loan_form" class="modalDialog">
 			<div>				
@@ -32,7 +32,7 @@
 	});
 	
 	$("input[type='submit']").on('click', function (event) {
-		createLoan(event);
+		recordLoan(event);
 	})
 	
 </script>
