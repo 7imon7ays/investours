@@ -44,9 +44,11 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+        format.html { redirect_to :back, notice: 'Loan was successfully added.' }
         format.json { render json: @loan, status: :created, location: @loan }
       else
+        p "ERRORS"
+        p @loan.errors
         format.html { render action: "new" }
         format.json { render json: @loan.errors, status: :unprocessable_entity }
       end

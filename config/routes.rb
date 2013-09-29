@@ -7,6 +7,7 @@ Investours::Application.routes.draw do
   resources :sign_ups
   resources :tours
   devise_for :users
+  get '/users/search', to: "users#search"
 
 
   authenticated :user do

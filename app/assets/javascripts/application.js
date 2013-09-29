@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require underscore
+//= require searchbox
+//= require serializeJSON
 //= require_tree .

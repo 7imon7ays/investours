@@ -1,14 +1,38 @@
 <div class="add_loan">
-	<a href="#add_loan_form" class="add_loan_link">Add Loan</a>
-	<form>
-		<div id="add_loan_form" class="modalDialog">
-			<div>
+	<a href="#loan_form" class="add_loan_link">Add Loan</a>
+	<form action="<%= loans_url %>" method="POST">
+		<div id="loan_form" class="modalDialog">
+			<div>				
 					<a href="#close" title="Close" class="close">X</a>
+					
+					<div class="errors">
+					</div>
+					
 					<h2>Add a loan</h2>
-					<label for="email">email</label>
-					<input id="email" type="text" value="<%= current_user.email %>">
-					<input type="Submit" value="Sign Up">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<label for="principal">Principal</label>
+					<input id="principal" type="number" min="1" max="10000" name="loan[principal]">
+					<br>
+					<label for="lender">Lender</label>
+					<input id="lender" type="text" class="search">
+					<ul id="results">
+					</ul>
+					<input name="loan[entrepreneur_id]" value="<%= @entrepreneur.id %>" type="hidden">
+					<input name="loan[project_id]" value="<%= @project.id %>" type="hidden">
+					<input type="Submit" value="Add">
 				</div>
 		</div>
 	</form>
 </div>
+
+<script type="text/javascript">
+	$('input.search').searchbox({
+		url: '/users/search',
+		dom_id: '#people'
+	});
+	
+	$("input[type='submit']").on('click', function (event) {
+		createLoan(event);
+	})
+	
+</script>
