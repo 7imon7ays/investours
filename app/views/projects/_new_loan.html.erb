@@ -1,9 +1,14 @@
-<div>
-	<button class='loan_form'>Add Loan</button>
+<div class="add_loan">
+	<a href="#add_loan_form" class="add_loan_link">Add Loan</a>
+	<form>
+		<div id="add_loan_form" class="modalDialog">
+			<div>
+					<a href="#close" title="Close" class="close">X</a>
+					<h2>Add a loan</h2>
+					<label for="email">email</label>
+					<input id="email" type="text" value="<%= current_user.email %>">
+					<input type="Submit" value="Sign Up">
+				</div>
+		</div>
+	</form>
 </div>
-
-<script type="text/javascript">
-	$('button.loan_form').on('click', function (event) {
-		renderLoanForm(event);
-	})
-</script>
