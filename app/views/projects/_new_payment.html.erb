@@ -1,0 +1,31 @@
+<div class="add_payment">
+	<a href="#payment_form" class="add_payment_link">Record New Payment</a>
+	<form action="<%= payments_url %>" method="POST">
+		<div id="payment_form" class="modalDialog">
+			<div>				
+					<a href="#close" title="Close" class="close">X</a>
+					
+					<div class="errors">
+					</div>
+					
+					<h2>Add a Payment</h2>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<label for="amount">Amount</label>
+					<input id="amount" type="number" min="1" max="10000" name="payment[amount]">
+					<br>
+					<input name="payment[payer_id]" value="<%= project.entrepreneur.id %>" type="hidden">
+					
+					<input name="payment[loan_id]" type="text"><!-- Complete with search as with lenders -->
+					<input type="Submit" value="Save">
+				</div>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	
+	$("input[type='submit']").on('click', function (event) {
+		recordPayment(event);
+	})
+	
+</script>

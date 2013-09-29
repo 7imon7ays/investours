@@ -5,6 +5,12 @@
 
 <%= render partial: "projects/status", locals: { project: @project } %>
 
-<%= render partial: "projects/new_loan", locals: { project: @project } if user_is_admin? %>
+<% if user_is_admin? %>
+	<% if @project.fully_funded?%>
+	<%= render partial: "projects/new_payment", locals: { project: @project } %>
+	<% else %>
+	<%= render partial: "projects/new_loan", locals: { project: @project } %>
+	<% end %>
+<% end %>
 
 <%= render partial: "projects/updates", locals: { project: @project, updates: @updates } %>

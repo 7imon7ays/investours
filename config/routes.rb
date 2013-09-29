@@ -3,7 +3,8 @@ Investours::Application.routes.draw do
   resources :entrepreneurs do
     resources :projects, only: [:show, :edit, :update]
   end
-  resources :loans, except: [:index, :destroy]
+  resources :loans
+  resources :payments
   resources :sign_ups
   resources :tours
   devise_for :users
