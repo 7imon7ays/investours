@@ -1,15 +1,15 @@
-<div class="center">
+<div class="centered two-third-width">
   <h1>INVESTOURS</h1>
   <p>TOURS THAT FIGHT POVERTY</p>
 </div>
 
-<div class="center">
+<div class="centered two-third-width">
   <div class="note">
     <p>Come meet our entrepreneurs!</p>
   </div>
   <ul>
     <% @entrepreneurs.each do |entrepreneur| %>
-      <li>
+      <li class="inline">
         <%= link_to "#{entrepreneur.full_name}",
           entrepreneur_url(entrepreneur), method: :get %>
       </li>
@@ -17,12 +17,12 @@
   </ul>
 </div>
 
-<div>
+<div class="centered two-third-width ten-padding white-background">
 	<p>So what is it?</p>
 	<p>We are a startup non-profit pioneering a new concept in tourism: microfinance tours.</p>
 </div>
 
-<div>
+<div class="centered ">
 	<h4>And what can I do?</h4>
 	<ul>
 		<li>
