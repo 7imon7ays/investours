@@ -1,3 +1,22 @@
+function drawLenders() {
+	var $resultsEl = $('ul#results');
+	$resultsEl.on('search', function (e) {
+		
+		$resultsEl.html("");
+		var searchResults = $resultsEl.data();
+		$resultsEl.removeData();
+		
+		_(searchResults).each(function(user) {
+			var fullName = user.first_name + " " + user.last_name
+			var label = "<label for='" + fullName + "'>" + fullName + "</label>";
+			var radio = "<input type='radio' name=loan[lender_id] id='" + fullName + "' value='" + user.id + "'>";
+			
+			$resultsEl.append("<li>" + label + radio + "</li>");
+		})
+	});
+}
+
+
 function recordLoan(event) {
 	event.preventDefault();
 	

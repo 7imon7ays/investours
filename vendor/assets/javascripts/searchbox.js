@@ -33,18 +33,9 @@
       if (params) query_string = [params.replace('&amp;', '&'), query].join('&')
       
       $.get([base, '?', query_string].join(''), function(data) {
-				var $resultsEl = $('ul#results')
-				$resultsEl.html("")
 				
-				_(data).each(function(user) {
-					var fullName = user.first_name + " " + user.last_name
-					var label = "<label for='" + fullName + "'>" + fullName + "</label>";
-					var radio = "<input type='radio' name=loan[lender_id] id='" + fullName + "' value='" + user.id + "'>";
-					
-					$resultsEl.append("<li>" + label + radio + "</li>");
-				})
-				
-        // $($.searchbox.settings.dom_id).html(data)
+        $($.searchbox.settings.dom_id).data(data);
+				$($.searchbox.settings.dom_id).trigger('search');
       })
     },
     

@@ -26,13 +26,17 @@
 </div>
 
 <script type="text/javascript">
+	
+	drawLenders();
+		
 	$('input.search').searchbox({
 		url: '/users/search',
-		dom_id: '#people'
+		dom_id: '#results'
 	});
+	
 	
 	$("input[type='submit']").on('click', function (event) {
 		recordLoan(event);
-	})
+	});
 	
 </script>

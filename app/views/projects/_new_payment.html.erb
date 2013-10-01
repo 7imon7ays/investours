@@ -14,8 +14,22 @@
 					<input id="amount" type="number" min="1" max="10000" name="payment[amount]">
 					<br>
 					<input name="payment[payer_id]" value="<%= project.entrepreneur.id %>" type="hidden">
-					
-					<input name="payment[loan_id]" type="text"><!-- Complete with search as with lenders -->
+					<p>Toward Loan:</p>
+					<ul>
+					<% project.loans.each do |loan| %>
+						<% next if loan.paid_in_full? %>
+						<li>
+							<label for="loan-<%= loan.id %>">
+								<%= "Loan #{loan.id} from #{loan.lender.full_name}." %>
+							</label>
+							<input id="loan-<%= loan.id %>" name="payment[loan_id]" type="radio" value="<%= loan.id %>">
+							<div>
+								<em><%= "$#{loan.amount_paid.to_f} repaid of $#{loan.amount_owed}." %>
+								<%= "Made on #{loan.created_at.to_date} " %></em>
+							</div>
+						</li>
+					<% end %>
+					</ul>
 					<input type="Submit" value="Save">
 				</div>
 		</div>

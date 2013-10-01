@@ -26,7 +26,7 @@ class Loan < ActiveRecord::Base
     amount_paid / amount_owed * 100
   end
   
-  def payed_in_full?
+  def paid_in_full?
     amount_paid >= amount_owed
   end
   
