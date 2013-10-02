@@ -1,10 +1,11 @@
 .navbar-text {
-	width: 790px;
-	margin: 0 auto;
+	background: black;
+	padding: 1px;
 }
 
 .navbar-text a {
 	text-decoration: none;
+	color: beige;
 }
 
 .navbar-text li {
@@ -17,7 +18,9 @@
 
 .dropdown {
 	position: absolute;
-	left: 565px;
+	text-align: left;
+	padding: 5px;
+	background: black;
 }
 
 .dropdown li {
@@ -26,4 +29,8 @@
 
 .dropdown-toggle:hover li {
 	display: block;
+}
+
+.center-text {
+	text-align: center;
 }

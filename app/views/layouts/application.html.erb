@@ -8,47 +8,7 @@
 </head>
 <body>
 
-	<div class="navbar-text pull-right">
-		<ul class="nav">
-			<li><a href='#'>WHAT IS INVESTOURS</a></li>
-			<li><a href='#'>YOUR EXPERIENCE</a></li>
-			<li><a href='#'>BLOG</a></li>
-			<li><a href='#'>MICROFINANCE CENTER</a></li>
-			<li><a href='#'>ABOUT US</a></li>
-			<% if user_signed_in? %>
-			  <li class="dropdown-toggle">
-					<a href="#">
-						<%= current_user.full_name.upcase %>
-					</a>
-					<ul class="dropdown">
-						<li>
-							<%= link_to "DASHBOARD", dashboard_url %>
-						</li>
-						<li>
-							<%= link_to "EDIT PROFILE", edit_user_registration_path %>
-						</li>
-						<li>
-							<%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: 'navbar-link'%>
-						</li>
-					</ul>
-				</li>
-			<% else %>
-		  <li class="dropdown-toggle">
-				<a href="#">
-					ACCOUNT
-				</a>
-				<ul class="dropdown">
-					<li>
-						<%= link_to "LOGIN", new_user_session_path, :class => 'navbar-link'  %>
-					</li>
-					<li>
-						<%= link_to "SIGN UP", new_user_registration_path %>
-					</li>
-				</ul>
-			</li>
-			<% end %>
-		</ul>
-	</div>
+	<%= render partial: "layouts/navbar" %>
 
 	<% if notice %>
 	  <p class="alert alert-notice"><%= notice %></p>

@@ -1,7 +1,7 @@
 class VisitorsController < ApplicationController
   
   def welcome
-    @entrepreneurs = Entrepreneur.all
+    @entrepreneurs = Entrepreneur.order("random()").limit(3)
   end
   
 end
