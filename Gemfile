@@ -30,6 +30,7 @@ end
 
 gem 'devise'
 gem 'cancan'
+gem 'figaro'
 
 gem 'friendly_id'
 
