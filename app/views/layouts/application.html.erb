@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
 	<%= filepicker_js_include_tag %>
+	<script type="text/javascript">filepicker.setKey('<%= ENV["FILEPICKER_IO_API_KEY"] %>');</script>
   <%= csrf_meta_tags %>
 </head>
 <body>

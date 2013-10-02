@@ -60,5 +60,6 @@ module Investours
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
     config.filepicker_rails.api_key = ENV["FILEPICKER_IO_API_KEY"]
+    # Simon: why no work? Hacked with JS scripted in application.html.erb
   end
 end

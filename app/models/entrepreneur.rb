@@ -1,6 +1,6 @@
 class Entrepreneur < ActiveRecord::Base
   extend FriendlyId
-  attr_accessible :first_name, :last_name, :location, :tour_ids, :slug
+  attr_accessible :first_name, :last_name, :location, :tour_ids, :filepicker_url, :slug
   
   validates :first_name, :last_name, presence: true
   
