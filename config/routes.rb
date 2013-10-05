@@ -9,8 +9,8 @@ Investours::Application.routes.draw do
   resources :tours
   devise_for :users
   get '/users/search', to: "users#search"
-
-
+  get 'home', to: "visitors#welcome"
+  
   authenticated :user do
     root :to => "dashboards#show"
   end

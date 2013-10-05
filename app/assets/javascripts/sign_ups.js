@@ -33,7 +33,7 @@ function showEntrepreneurs (chosenTour) {
 	$("#step3").append("<ul class='entrepreneurs'></ul>");
 	_(chosenTour.entrepreneurs).each(function (entrepreneur) {
 		var fullName = entrepreneur.first_name + " " + entrepreneur.last_name;
-		$('ul.entrepreneurs').append("<li><a href='/entrepreneurs/" + entrepreneur.id + "'\
+		$('ul.entrepreneurs').append("<li><a href='/entrepreneurs/" + entrepreneur.slug + "'\
 		target='_new'>" + fullName + "</a></li>")
 	})
 }
