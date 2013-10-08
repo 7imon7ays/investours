@@ -1,3 +1,23 @@
-<div>
-	<button class='project_form'>Add Update</button>
+<div class="add_update">
+	<a href="#update_form" class="add_update_link">Add Update</a>
+	<form action="<%= updates_url %>" method="POST">
+		<div id="update_form" class="modalDialog">
+			<div>				
+					<a href="#close" title="Close" class="close">X</a>
+					
+					<div class="errors">
+					</div>
+					
+					<h2>Update Project</h2>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<label for="title">Title</label>
+					<input id="title" type="text" name="update[title]">
+					<br>
+					<label for="body">Body</label>
+					<textarea id="body" name="update[body]"></textarea>
+					<input name="update[project_id]" value="<%= project.id %>" type="hidden">
+					<input type="Submit" value="Save">
+				</div>
+		</div>
+	</form>
 </div>

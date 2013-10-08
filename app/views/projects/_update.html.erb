@@ -1,6 +1,8 @@
 <div>
 	<h4><%= update.title %></h4>
-	<p><%= update.author %></p>
-	<p><%= update.created_at %></p>
+	<p>By <%= update.author.full_name %> on <%= update.created_at.to_date %></p>
 	<p><%= update.body %></p>
+	<% if user_is_admin? %>
+	<%= button_to "Delete Update", update_url(update), method: :delete, confirm: "Delete this update?" %>
+	<% end %>
 </div>

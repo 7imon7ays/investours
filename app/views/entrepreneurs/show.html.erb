@@ -6,7 +6,7 @@
 	<%= render "projects_list", locals: { entrepreneur: @entrepreneur } %>
 <% end %>
 
-<% if current_user && current_user.role == 'admin' %>
+<% if user_is_admin? %>
 <%= link_to "Edit #{@entrepreneur.full_name}", edit_entrepreneur_url(@entrepreneur), method: :get  %>
 <%= button_to "Delete #{@entrepreneur.full_name}", entrepreneur_url(@entrepreneur), method: :delete, confirm: "Delete #{@entrepreneur.full_name}?" %>
 <% end %>
