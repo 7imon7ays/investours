@@ -1,18 +1,14 @@
 <div>
 	<p>$<%= project.amount_borrowed %> owed. $<%= project.amount_repaid %> repaid.</p>
 	<div class='meter orange'>
-		<span style="width: <%= project.repayment_status %>%"></span>
+		<span id="project-<%= project.id %>" style="width: <%= project.repayment_status %>%"></span>
 	</div>
 </div>
 
 
 <script type="text/javascript">
-$(".meter > span").each(function() {
-	$(this)
-		.data("origWidth", $(this).width())
-		.width(0)
-		.animate({
-			width: $(this).data("origWidth")
-		}, 1200);
-});
+$(function () {
+	var $repaymentSpan = $(".meter > span#project-<%= project.id %>")
+	animateProgressBar($repaymentSpan);
+})
 </script>
